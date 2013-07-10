@@ -7,7 +7,9 @@ import urllib, urllib2
 import re
 import json
 
-
+class NotFound(webapp2.RequestHandler):
+    def get(self):
+        self.error(404)
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
@@ -25,5 +27,5 @@ class MainPage(webapp2.RequestHandler):
         self.response.write(result)
 
 app = webapp2.WSGIApplication([
-                ('/', MainPage),
+                ('/vimplugins', MainPage),
                 ], debug=True)
